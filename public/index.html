@@ -513,6 +513,133 @@
       color: var(--accent);
     }
 
+    /* ── BLOG ── */
+    .blog-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2rem;
+    }
+
+    .blog-card {
+      text-decoration: none;
+      display: flex;
+      flex-direction: column;
+      gap: 1.2rem;
+      group: true;
+    }
+
+    .blog-thumb {
+      width: 100%;
+      aspect-ratio: 16 / 9;
+      border-radius: 2px;
+      overflow: hidden;
+      position: relative;
+      background: var(--surface);
+      border: 1px solid var(--border);
+    }
+
+    .blog-thumb-inner {
+      position: absolute;
+      inset: 0;
+      transition: transform 0.5s ease;
+    }
+
+    .blog-card:hover .blog-thumb-inner {
+      transform: scale(1.04);
+    }
+
+    .blog-thumb-1 .blog-thumb-inner {
+      background: linear-gradient(135deg, #1a1510 0%, #2e2318 40%, #1c1a14 100%);
+    }
+    .blog-thumb-2 .blog-thumb-inner {
+      background: linear-gradient(135deg, #0f1318 0%, #1a2230 40%, #111620 100%);
+    }
+    .blog-thumb-3 .blog-thumb-inner {
+      background: linear-gradient(135deg, #181218 0%, #251825 40%, #141014 100%);
+    }
+
+    [data-theme="light"] .blog-thumb-1 .blog-thumb-inner {
+      background: linear-gradient(135deg, #e8e0d5 0%, #d4c4ae 40%, #e2d8cc 100%);
+    }
+    [data-theme="light"] .blog-thumb-2 .blog-thumb-inner {
+      background: linear-gradient(135deg, #d5dde8 0%, #bfcfe0 40%, #ccd6e2 100%);
+    }
+    [data-theme="light"] .blog-thumb-3 .blog-thumb-inner {
+      background: linear-gradient(135deg, #e2d5e2 0%, #d0bfd0 40%, #ddd0dd 100%);
+    }
+
+    .blog-thumb-label {
+      position: absolute;
+      bottom: 1rem;
+      left: 1rem;
+      font-size: 0.6rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--accent);
+      opacity: 0.7;
+    }
+
+    .blog-meta {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+    }
+
+    .blog-category {
+      font-size: 0.65rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--accent);
+    }
+
+    .blog-date {
+      font-size: 0.65rem;
+      letter-spacing: 0.08em;
+      color: var(--text-secondary);
+    }
+
+    .blog-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.15rem;
+      font-weight: 400;
+      color: var(--text-primary);
+      line-height: 1.35;
+      transition: color 0.25s;
+    }
+
+    .blog-card:hover .blog-title {
+      color: var(--accent);
+    }
+
+    .blog-excerpt {
+      font-size: 0.83rem;
+      color: var(--text-secondary);
+      line-height: 1.75;
+    }
+
+    .blog-readmore {
+      font-size: 0.7rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--text-secondary);
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+      transition: color 0.25s, gap 0.25s;
+    }
+
+    .blog-card:hover .blog-readmore {
+      color: var(--accent);
+      gap: 0.7rem;
+    }
+
+    @media (max-width: 900px) {
+      .blog-grid {
+        grid-template-columns: 1fr;
+        gap: 3rem;
+      }
+    }
+
     /* ── THEME TOGGLE ── */
     .theme-toggle {
       display: flex;
@@ -622,6 +749,7 @@
     <a class="nav-logo" href="#hero">AL</a>
     <ul class="nav-links">
       <li><a href="#projects">Projetos</a></li>
+      <li><a href="#blog">Blog</a></li>
       <li><a href="#contact">Contato</a></li>
     </ul>
     <button class="theme-toggle" id="theme-toggle" aria-label="Alternar tema">
@@ -708,6 +836,58 @@
           <span class="tag">Figma</span>
         </div>
         <span class="project-arrow">↗</span>
+      </a>
+
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <!-- BLOG -->
+  <section id="blog">
+    <p class="section-label fade-in">Artigos</p>
+    <div class="blog-grid">
+
+      <a class="blog-card fade-in" href="#">
+        <div class="blog-thumb blog-thumb-1">
+          <div class="blog-thumb-inner"></div>
+          <span class="blog-thumb-label">Em breve</span>
+        </div>
+        <div class="blog-meta">
+          <span class="blog-category">Design</span>
+          <span class="blog-date">Mai 2026</span>
+        </div>
+        <h3 class="blog-title">Como construir um design system do zero sem perder a sanidade</h3>
+        <p class="blog-excerpt">Tokens, componentes, documentação — um guia honesto sobre o que funciona e o que você vai jogar fora na segunda semana.</p>
+        <span class="blog-readmore">Ler artigo →</span>
+      </a>
+
+      <a class="blog-card fade-in" href="#">
+        <div class="blog-thumb blog-thumb-2">
+          <div class="blog-thumb-inner"></div>
+          <span class="blog-thumb-label">Em breve</span>
+        </div>
+        <div class="blog-meta">
+          <span class="blog-category">Desenvolvimento</span>
+          <span class="blog-date">Abr 2026</span>
+        </div>
+        <h3 class="blog-title">CSS que envelhece bem: o que aprendi depois de mil refatorações</h3>
+        <p class="blog-excerpt">Variáveis, cascade layers e a arte de escrever estilos que a versão de você daqui a dois anos não vai odiar.</p>
+        <span class="blog-readmore">Ler artigo →</span>
+      </a>
+
+      <a class="blog-card fade-in" href="#">
+        <div class="blog-thumb blog-thumb-3">
+          <div class="blog-thumb-inner"></div>
+          <span class="blog-thumb-label">Em breve</span>
+        </div>
+        <div class="blog-meta">
+          <span class="blog-category">Carreira</span>
+          <span class="blog-date">Mar 2026</span>
+        </div>
+        <h3 class="blog-title">Portfólio ou GitHub? O que recrutadores realmente olham</h3>
+        <p class="blog-excerpt">Depois de entrevistar em dez empresas em seis meses, entendi o que separa um currículo que passa do que fica na pilha.</p>
+        <span class="blog-readmore">Ler artigo →</span>
       </a>
 
     </div>
